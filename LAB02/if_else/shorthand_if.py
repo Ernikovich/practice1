@@ -18,3 +18,9 @@ print("A") if a > b else print("=") if a == b else print("B")
 username = ""
 display_name = username if username else "Guest"
 print("Welcome,", display_name)
+# В display_name положи username, ЕСЛИ username не пустой,
+# ИНАЧЕ положи "Guest"
+
+#result = A if CONDITION else B
+# 📌 A — когда условие True
+# 📌 B — когда False
