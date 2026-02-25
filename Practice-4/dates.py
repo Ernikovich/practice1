@@ -10,7 +10,6 @@ import datetime
 x = datetime.datetime.now()
 print(x.year)
 print(x.strftime("%A"))
-
 # Первый datetime — модуль
 # Второй datetime — класс внутри модуля
 # 3️⃣ datetime.datetime.now() — это метод класса, который возвращает текущие дату и время.
