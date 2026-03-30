@@ -21,3 +21,4 @@ def insert_contacts_from_csv(filename):
 
 if __name__ == "__main__":
     insert_contacts_from_csv("data.csv")
+# DictReader превращает каждую строку CSV в словарь.
