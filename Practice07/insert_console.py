@@ -14,11 +14,11 @@ def insert_contact_console():
         with psycopg2.connect(**config) as conn:
             with conn.cursor() as cur:
                 cur.execute(sql, (first_name, last_name, phone))
-                contact_id = cur.fetchone()[0] # получает возвращённый id новой записи.
-            conn.commit()  #сохраняет изменения в базе.
-            print(f"✅ Contact inserted with id {contact_id}")
+                contact_id = cur.fetchone()[0] 
+            conn.commit()  
+            print(f" Contact inserted with id {contact_id}")
     except (Exception, psycopg2.DatabaseError) as error:
-        print("❌ Error:", error)
+        print(" Error:", error)
 
 if __name__ == "__main__":
     insert_contact_console()

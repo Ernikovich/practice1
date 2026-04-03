@@ -14,11 +14,10 @@ def get_one_contact():
                     print(row)
                     row = cur.fetchone()
     except (Exception, psycopg2.DatabaseError) as error:
-        print("❌ Error:", error)
+        print(" Error:", error)
 
 
 def get_all_contacts():
-    """ Получить все записи из phonebook (fetchall) """
     sql = "SELECT id, first_name, last_name, phone FROM phonebook ORDER BY id"
     config = load_config()
     try:
@@ -26,11 +25,11 @@ def get_all_contacts():
             with conn.cursor() as cur:
                 cur.execute(sql)
                 rows = cur.fetchall()
-                print("📋 Всего контактов:", cur.rowcount)
+                print(" Всего контактов:", cur.rowcount)
                 for row in rows:
                     print(row)
     except (Exception, psycopg2.DatabaseError) as error:
-        print("❌ Error:", error)
+        print(" Error:", error)
 
 
 def get_contacts_batch(size=2):
@@ -48,15 +47,15 @@ def get_contacts_batch(size=2):
                     for row in rows:
                         print(row)
     except (Exception, psycopg2.DatabaseError) as error:
-        print("❌ Error:", error)
+        print(" Error:", error)
 
 
 if __name__ == "__main__":
-    print("🔎 Один контакт:")
+    print(" Один контакт:")
     get_one_contact()
 
-    print("\n📋 Все контакты:")
+    print("\n Все контакты:")
     get_all_contacts()
 
-    print("\n📦 Контакты порциями:")
+    print("\n Контакты порциями:")
     get_contacts_batch(2)

@@ -14,11 +14,11 @@ def update_contact(contact_id, new_phone):
                 cur.execute(sql, (new_phone, contact_id))
                 updated_row_count = cur.rowcount
             conn.commit()
-            print(f"✅ Updated {updated_row_count} row(s)")
+            print(f"Updated {updated_row_count} row(s)")
     except (Exception, psycopg2.DatabaseError) as error:
-        print("❌ Error:", error)
+        print("Error:", error)
 
     return updated_row_count
 
 if __name__ == "__main__":
-    update_contact(3, "777888999")  # пример: обновляем телефон у контакта с id=1
+    update_contact(3, "777888999")  

@@ -9,7 +9,7 @@ def run_sql_file(filename):
                 sql = f.read()
                 cur.execute(sql)
             conn.commit()
-            print("✅ SQL file executed successfully")
+            print(" SQL file executed successfully")
     finally:
         conn.close()
 

@@ -15,9 +15,9 @@ def insert_contact(first_name, last_name, phone):
                 if rows:
                     contact_id = rows[0]
                 conn.commit()
-                print(f"✅ Contact inserted with id {contact_id}")
+                print(f" Contact inserted with id {contact_id}")
     except (Exception, psycopg2.DatabaseError) as error:
-        print("❌ Error:", error)
+        print(" Error:", error)
 
     return contact_id
 
