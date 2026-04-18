@@ -2,10 +2,10 @@ import pygame
 
 class MusicPlayer:
     def __init__(self, playlist):
-        pygame.mixer.init()
+        pygame.mixer.init() #нициализация аудио‑модуля Pygame
         self.playlist = playlist
-        self.index = 0
-        self.is_playing = False
+        self.index = 0 #текущий трек
+        self.is_playing = False # флаг, играет ли музыка.
         self.saved_pos = 0  # сохраняем позицию при стопе
 
     def play(self):
@@ -39,3 +39,24 @@ class MusicPlayer:
             if pos >= 0:
                 return self.saved_pos + pos
         return self.saved_pos
+
+# self.index = (self.index + 1) % len(self.playlist)
+# Увеличиваем индекс текущего трека на 1.
+# % len(self.playlist) гарантирует, что если мы дошли до конца списка, то вернёмся к началу (циклический переход).
+# Например:
+# Было index = 0, станет 1
+# Было index = 1, а длина плейлиста = 2 → (1+1) % 2 = 0, значит снова первый трек.
+
+# pos = pygame.mixer.music.get_pos() // 1000
+# Получаем текущую позицию трека в миллисекундах.
+# Делим на 1000, чтобы перевести в секунды.
+# Например, если прошло 12.345 мс → будет 12 секунд.
+
+# if pos >= 0:
+# Pygame возвращает -1, если трек не играет.
+# Поэтому проверяем, что позиция корректная.
+
+# return self.saved_pos + pos
+# Возвращаем сумму:
+# self.saved_pos — сколько секунд уже было накоплено до этого (например, после остановки).
+# pos — сколько секунд прошло с момента последнего запуска.
