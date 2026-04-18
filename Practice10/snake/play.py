@@ -47,6 +47,11 @@ while True:
     # новая голова добавилась в начало,
     # старая голова стала вторым сегментом
     # телепортируем голову на противоположную сторону
+
+    # Проверка столкновения с собой
+    if new_head in snake[1:]:
+        print("Game Over")
+        sys.exit()
 # Проверка еды
     if new_head == food:
         score+=1
@@ -63,9 +68,6 @@ while True:
     if score > 0 and score % 5 == 0 and score != last_level_score:
         level += 1
         last_level_score = score # запоминаем, что на этом счёте уровень уже был повышен.
-        snake = [snake[0]]  # если хочешь сбросить змейку до головы
-        # ты создаёшь новый список, в котором остаётся только голова.
-        # То есть змейка сбрасывается до одного сегмента.
 
     screen.fill(BLACK)
     for segment in snake:
