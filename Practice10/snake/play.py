@@ -48,6 +48,10 @@ while True:
     # старая голова стала вторым сегментом
     # телепортируем голову на противоположную сторону
 
+    # if new_head[0] < 0 or new_head[0] >= WIDTH or new_head[1] < 0 or new_head[1] >= HEIGHT:
+    #     print("Game Over")
+    #     sys.exit()
+
     # Проверка столкновения с собой
     if new_head in snake[1:]:
         print("Game Over")
@@ -66,19 +70,14 @@ while True:
         snake.pop()
     # Проверка перехода на новый уровень
     if score > 0 and score % 5 == 0 and score != last_level_score:
+        speed += 2   # увеличиваем скорость на 2
         level += 1
         last_level_score = score # запоминаем, что на этом счёте уровень уже был повышен.
 
     screen.fill(BLACK)
     for segment in snake:
         pygame.draw.rect(screen,GREEN,(*segment,CELL_SIZE,CELL_SIZE))
-        # segment = (x, y) → координаты сегмента.
-        # pygame.draw.rect(surface, color, rect, width=0, border_radius=0)
-        # rect
-        # Координаты и размеры прямоугольника.
-        # Можно передать:
-        # кортеж (x, y, width, height),
-        # или объект pygame.Rect(x, y, width, height).
+
     pygame.draw.rect(screen,RED,(*food,CELL_SIZE,CELL_SIZE))
     # food — координаты яблока (x, y).
 

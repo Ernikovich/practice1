@@ -1,7 +1,7 @@
 import pygame 
 import sys
 import random,time
-from pygame.locals import *#содержит константы клавиш (K_LEFT, K_RIGHT, QUIT и т.д.).
+from pygame.locals import * # содержит константы клавиш (K_LEFT, K_RIGHT, QUIT и т.д.).
 
 pygame.init()
 
@@ -41,8 +41,6 @@ class Enemy(pygame.sprite.Sprite):
     def move(self):
         global SCORE
         self.rect.move_ip(0, SPEED) # Двигаем вниз 
-        # У Rect есть метод move_ip(x, y).
-        # ip = in place (то есть «на месте»).
         # Это значит, что прямоугольник перемещается сам, без создания копии.
         if (self.rect.top > 600):# Если вышел за экран
             SCORE+=1
