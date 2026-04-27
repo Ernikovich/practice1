@@ -111,7 +111,7 @@ def handle_crash():
     DISPLAYSURF.fill(RED)
     DISPLAYSURF.blit(game_over, (30, 250))
     pygame.display.update()
-    pygame.time.delay(2000)  
+    pygame.time.delay(2000)  #задержка
     pygame.quit()
     sys.exit()
 
