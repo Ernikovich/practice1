@@ -77,4 +77,12 @@ pygame.quit()
 # Ширина рамки всегда 500 пикселей, высота 20.
 # 2 — толщина линии рамки.
 
+# from pydub import AudioSegment
+# from pydub.playback import play
+
+# song = AudioSegment.from_file("music/gravity_falls.mp3")
+# faster_song = song.speedup(playback_speed=1.5)  # ускорение в 1.5 раза
+# play(faster_song)
+
+
 

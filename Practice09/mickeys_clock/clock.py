@@ -27,19 +27,17 @@ while not done:
     second = current_time.tm_sec
     
     #минут пен секундтың бұрышын алып аламыз
-    #қазіргі минут * 360 градус / 60 минут + қазіргі секундты қосамыз 
+    #қазіргі минут * 360 градус / 60 минут + қазіргі секундты қосамыз    
     minute_angle = minute * 6    + (second / 60) * 6   
     second_angle = second * 6  
     
     #экран бетіне пайда фонмен болуы
     screen.blit(mainclock, (0,0))
     
-    #оң қол минутты орналастыру
     rotated_rightarm = pygame.transform.rotate(pygame.transform.scale(rightarm, (800, 600)), -minute_angle)#Масштабирует картинку стрелки,Поворачивает уже масштабированную картинку на угол
     rightarmrect = rotated_rightarm.get_rect(center=(800 // 2, 600 // 2 + 12))
     screen.blit(rotated_rightarm, rightarmrect)
     
-    #сол қол секундты орналастыру
     rotated_leftarm = pygame.transform.rotate(pygame.transform.scale(leftarm, (40.95, 682.5)), -second_angle)
     leftarmrect = rotated_leftarm.get_rect(center=(800 // 2, 600 // 2 + 10))
     screen.blit(rotated_leftarm, leftarmrect)
@@ -98,3 +96,17 @@ pygame.quit()
 # То есть все изменения, которые ты нарисовал с помощью screen.blit(...), становятся видимыми для пользователя.
 # clock.tick(60)
 # Ограничивает скорость выполнения цикла до 60 кадров в секунду (FPS).
+
+
+#  fake_seconds += 1   # каждый кадр +1
+#     second = fake_seconds % 60
+#     minute = (fake_seconds // 60) % 60
+
+
+# now = pygame.time.get_ticks()
+#    if now - last_update >= 2000:   # задержка 2 секунды
+#         second += 1
+#         if second >= 60:
+#             second = 0
+#             minute += 1
+#         last_update = now

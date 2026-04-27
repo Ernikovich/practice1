@@ -33,7 +33,7 @@ def main():
 
         ball.draw(screen) #рисуем мяч на экране.
         pygame.display.flip() #обновляем экран (показываем изменения).
-        clock.tick(30)  # FPS
+        clock.tick(50)  # FPS
 
     pygame.quit()#Когда цикл завершён, закрываем Pygame и окно.
 
